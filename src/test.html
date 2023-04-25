@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas Example</title>
+  </head>
+  <body>
+    <img id="myImage" src="./assets/test.jpg" alt="Image" />
+    <canvas id="myCanvas" width="400" height="200"></canvas>
+
+    <script>
+      const canvas = document.getElementById('myCanvas');
+      const ctx = canvas.getContext('2d');
+      const img = document.getElementById('myImage');
+
+      img.onload = function () {
+        // 绘制缩略图
+        const thumbnailSize = 100;
+        ctx.drawImage(img, 0, 0, thumbnailSize, thumbnailSize);
+
+        // 绘制文本
+        const text = 'Hello world!';
+        ctx.font = '24px serif';
+        ctx.fillText(text, thumbnailSize + 10, 50);
+      };
+    </script>
+  </body>
+</html>
